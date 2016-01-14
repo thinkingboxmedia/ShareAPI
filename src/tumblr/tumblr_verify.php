@@ -16,14 +16,7 @@ class TB_Tumblr_Verify {
     $callback = $config['domain'] . "/tumblr/login/success/";
     $_SESSION['tumblr_temp_token'] = $data['oauth_token'];
     $_SESSION['tumblr_temp_secret'] = $data['oauth_token_secret'];
-
-    if(isset($_SESSION['tumblr_callback_url'])){
-        $_SESSION['tumblr_callback_url'] = null;
-    }
-
-    if(isset($_GET['callback']) && $_GET['callback'] != ""){
-        $_SESSION['tumblr_callback_url'] = $_GET['callback'];
-    }
+    
     return 'https://www.tumblr.com/oauth/authorize?oauth_token=' . $data['oauth_token'] . "&oauth_callback=" . $callback;
     
   }
@@ -50,12 +43,8 @@ class TB_Tumblr_Verify {
     $_SESSION['tumblr_token'] = $token;
     $_SESSION['tumblr_secret'] = $secret;
 
-    if(isset($_SESSION['tumblr_callback_url'])){
-        header('location: ' . $_SESSION['tumblr_callback_url']);
-        die();
-    }
-
-    return 'success';
+    echo "<script>window.close();</script>";
+    die();
   }
   
 

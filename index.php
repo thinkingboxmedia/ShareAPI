@@ -142,6 +142,18 @@ if($params[0] == "facebook"){
         }
         
       }
+    } else if($params[1] == 'intent'){
+      if(isset($params[2])){
+        $fb = new TB_Facebook_Intent();
+        if($params[2] == 'share') {
+          $url = $fb->GenerateIntentLink();
+          if (strpos($url,'http') !== false) {
+            generateSuccessResponse($url);
+          } else {
+            generateErrorResponse($url);
+          }
+        }
+      }
     }
 }
 
@@ -208,6 +220,26 @@ if($params[0] == 'twitter'){
       } else {
         generateErrorResponse($r);
       }
+    } else if($params[1] == 'intent') {
+      $tw = new TB_Twitter_Intent();
+      if(isset($params[2])){
+        if($params[2] == 'tweet'){
+          $url = $tw->GenerateTweetIntent();
+          if (strpos($url,'http') !== false) {
+              generateSuccessResponse($url);
+          } else {
+            generateErrorResponse($url);
+          }
+          
+        } else if($params[2] == 'retweet'){
+          $url = $tw->GenerateRetweetIntent();
+          if (strpos($url,'http') !== false) {
+              generateSuccessResponse($url);
+          } else {
+            generateErrorResponse($url);
+          }
+        }
+      }
     }
   }
 } 
@@ -229,21 +261,12 @@ if($params[0] == 'tumblr'){
       $t = new TB_Tumblr_Verify();
       if(isset($params[2])){
         if($params[2] == "success"){
-          $r = $t->HandleResponse();
-          if($r == "success"){
-              generateSuccessResponse("User has logged in");
-          } else {
-              generateErrorResponse($r);
-          }
+          $t->HandleResponse();
         } 
       } else {
         $r = $t->GenerateLoginLink();
-        if(isset($_GET['auto_redirect']) && $_GET['auto_redirect'] == true){
-          header('location: ' . $r);
-          die();
-        } else {
-          generateSuccessResponse($r);
-        }
+         generateSuccessResponse($r);
+        
       }
     } else if($params[1] == 'post'){
       if(isset($params[2])){
