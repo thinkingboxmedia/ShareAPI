@@ -4,7 +4,7 @@ class TB_Facebook_Check {
   function VerifyImagePost($file) {
     $config = require('./social_limits.php');
 
-    if(strpos($file, "http://") === false){
+    if(strpos($file, "http://") === false && strpos($file, "https://") === false){
       $fileSize = filesize($file);
       $image = getimagesize($file);
 

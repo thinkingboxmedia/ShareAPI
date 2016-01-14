@@ -104,10 +104,6 @@ class TB_Tumblr_Post {
       "url" => $_POST['url'],
     );
 
-    if(isset($_POST['link']) && $_POST['link'] != ""){
-      $data['link'] = $_POST['link'];
-    }
-
     if(isset($_POST['description']) && $_POST['description'] != ""){
       $data['description'] = FilterText($_POST['description']);
     }

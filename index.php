@@ -1,10 +1,47 @@
 <?php
+if(!session_id()) {
+    session_start();
+}
+
+$config = include("/config.php");
+
+/////////////////////////////////////HANDLE PREFLIGHT REQUESTS////////////////////////////////////
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+  // return only the headers and not the content
+  // only allow CORS if we're doing a GET - i.e. no saving for now.
+  if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
+    if($config['cross_domain']){
+      header('Access-Control-Allow-Origin: ' . $config['requesting_domain']);
+      header('Access-Control-Allow-Headers: X-Requested-With');
+      header('Access-Control-Allow-Credentials: true');
+    } else {
+      header('Access-Control-Allow-Origin: *');
+      header('Access-Control-Allow-Headers: X-Requested-With');
+    }
+
+  }
+  exit;
+  die();
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+if($config['cross_domain']){
+  header('Access-Control-Allow-Origin: ' . $config['requesting_domain']);
+  header('Access-Control-Allow-Headers: X-Requested-With');
+  header('Access-Control-Allow-Credentials: true');
+} else {
+  header('Access-Control-Allow-Origin: *');
+  header('Access-Control-Allow-Headers: X-Requested-With');
+}
+
+
 require_once __DIR__ . '/vendor/autoload.php';
 include 'src/social_media.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 use Snipe\BanBuilder\CensorWords;
-session_start();
-$config = include("/config.php");
+
+
 
 
 ////////////////BASIC SECURITY CHECK/////////////////
@@ -13,7 +50,7 @@ $requester = $headers['Host'];
 
 $u = str_replace("http://", "", $config['domain']);
 $url = explode("/", $u)[0];
-if($requester != $url && !$config['allow_external_requests']){
+if($requester != $url && !$config['cross_domain']){
   generateErrorResponse("This API cannot be accessed from an external address");
 }
 //////////////////////////////////////////////////////////
@@ -46,16 +83,8 @@ if($params[0] == "facebook"){
       if(isset($params[2]) && $params[2] == "success"){ //Response from facebook
         $fb->HandleResponse();
       } else { //Just Login
-
-        $url = $fb->GenerateLoginLink();
-        if(isset($_GET['auto_redirect']) && $_GET['auto_redirect'] == true){
-          header('location: ' . $url);
-          generateSuccessResponse("");
-          die();
-        } else {
-          generateSuccessResponse($url);
-        }
-        
+          $url = $fb->GenerateLoginLink();
+          generateSuccessResponse($url); 
       }
     } 
     else if($params[1] == 'post'){
@@ -136,12 +165,7 @@ if($params[0] == 'twitter'){
     if($params[1] == 'login'){
       $tw = new TB_Twitter_Login();
       if(isset($params[2]) && $params[2] == 'success'){
-        $resp = $tw->HandleResponse();
-        if($resp == "success"){
-          generateSuccessResponse("User has signed in");
-        } else {
-          generateErrorResponse($resp);
-        }
+        $tw->HandleResponse();
       } else {
         $url = $tw->GenerateLoginLink();
         if($url != "error"){

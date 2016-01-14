@@ -16,7 +16,9 @@ class TB_Twitter_Login {
     $access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
     if($connection->getLastHttpCode() == 200){
       $_SESSION['access_token'] = $access_token;
-      return "success";
+
+      echo "<script>window.close();</script>";
+      die();
     } else {
       return "An error occured";
     }
@@ -30,6 +32,7 @@ class TB_Twitter_Login {
     $_SESSION['oauth_token'] = $request_token['oauth_token'];
     $_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
     $url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
+
     return $url;
  
   }

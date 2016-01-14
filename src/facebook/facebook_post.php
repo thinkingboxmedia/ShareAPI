@@ -101,6 +101,7 @@ class TB_Facebook_Post {
         $data['message'] = FilterText($_POST['message']);
     }
 
+
     try {
       // Returns a `Facebook\FacebookResponse` object
       $response = $fb->post('/me/photos', $data, $_SESSION['facebook_access_token']);
