@@ -43,6 +43,7 @@ use Snipe\BanBuilder\CensorWords;
 
 
 
+
 ////////////////BASIC SECURITY CHECK/////////////////
 $headers = getallheaders();
 $requester = $headers['Host'];
@@ -304,6 +305,25 @@ if($params[0] == 'tumblr'){
             generateErrorResponse("Cannot get user blogs");
           }
         }
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////////
+
+
+///////////////////////ACTION - PINTREST////////////////////////
+
+if($params[0] == 'pinterest'){
+  if(isset($params[1])){
+    if($params[1] == 'login'){
+      $p = new TB_Pinterest_Verify();
+      if(isset($params[2]) && $params[2] == 'success'){
+        $p->HandleResponse();
+      } else {
+        $url = $p->GenerateLoginLink();
+        generateSuccessResponse($url);
       }
     }
   }
