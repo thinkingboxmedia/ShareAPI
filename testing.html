@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <title>ShareAPI Test Forms</title>
+  </head>
+  <body>
+    <h1>Facebook</h1>
+    <form method="GET" action="http://localhost/ShareAPI/facebook/login/">
+      <input type="hidden" name="auto_redirect" value="true">
+      <input type="text" name='callback' placeholder='callback'>
+      <input type="submit" value="LOGIN">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="http://localhost/ShareAPI/facebook/post/status">
+      <input type="text" name='message' placeholder="message">
+      <input type='submit' value="POST STATUS">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="http://localhost/ShareAPI/facebook/post/link">
+      <input type="text" name='link' placeholder="link">
+      <input type="text" name='message' placeholder="message">
+      <input type='submit' value="SHARE LINK">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="http://localhost/ShareAPI/facebook/post/photo">
+      <input type="text" name='source' placeholder="source">
+      <input type="text" name='message' placeholder="message">
+      <input type='submit' value="SHARE PHOTO">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="http://localhost/ShareAPI/facebook/post/video">
+      <input type="text" name='source' placeholder="source">
+      <input type="text" name='title' placeholder="title">
+      <input type="text" name='description' placeholder="description">
+      <input type='submit' value="SHARE VIDEO">
+    </form>
+
+     <hr>
+
+    <form method="GET" action="http://localhost/ShareAPI/facebook/user/">
+      <input type="hidden" name='fields' value="name,likes">
+      <input type='submit' value="GET INFO">
+    </form>
+
+    <br><br><br><br><hr>
+
+    <h1>Twitter</h1>
+
+    <form method="GET" action="http://localhost/ShareAPI/twitter/login/">
+      <input type="hidden" name="auto_redirect" value="true">
+      <input type="text" name='callback' placeholder='callback'>
+      <input type="submit" value="LOGIN">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="http://localhost/ShareAPI/twitter/post/tweet">
+      <input type="text" name='message' placeholder="message">
+      <input type='submit' value="POST TWEET">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="http://localhost/ShareAPI/twitter/post/image">
+      <input type="text" name='source' placeholder="source">
+      <input type="text" name='message' placeholder="message">
+      <input type='submit' value="SHARE PHOTO">
+    </form>
+
+    <hr>
+
+    <form method="GET" action="http://localhost/ShareAPI/twitter/search">
+      <input type="text" name='search' placeholder="search">
+      <input type="text" name='type' placeholder="type">
+      <input type="text" name='count' placeholder="count">
+      <input type="text" name='geo' placeholder="geo">
+      <input type='submit' value="SEARCH TWEETS">
+    </form>
+
+    <br><br><br><br><hr>
+
+    <h1>Tumblr</h1>
+
+    <form method="GET" action="http://localhost/ShareAPI/tumblr/login/">
+      <input type="hidden" name="auto_redirect" value="true">
+      <input type="text" name='callback' placeholder='callback'>
+      <input type="submit" value="LOGIN">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="http://localhost/ShareAPI/tumblr/post/text">
+      <input type="text" name='title' placeholder='title'>
+      <input type="text" name='message' placeholder="message">
+      <input type="text" name='blogName' placeholder='Blog' value='tbshameless'>
+      <input type='submit' value="POST Text">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="http://localhost/ShareAPI/tumblr/post/photo">
+      <input type="text" name='source' placeholder='source'>
+      <input type="text" name='link' placeholder='link'>
+      <input type="text" name='caption' placeholder="caption">
+      <input type="text" name='blogName' placeholder='Blog' value='tbshameless'>
+      <input type='submit' value="POST Photo">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="http://localhost/ShareAPI/tumblr/post/link">
+      <input type="text" name='url' placeholder='url'>
+      <input type="text" name='description' placeholder='description'>
+      <input type="text" name='thumbnail' placeholder="thumbnail">
+      <input type="text" name='author' placeholder="author">
+      <input type="text" name='blogName' placeholder='Blog' value='tbshameless'>
+      <input type='submit' value="POST Link">
+    </form>
+
+    <hr>
+
+    <form method="GET" action="http://localhost/ShareAPI/tumblr/user/blogs">
+      <input type='submit' value="GET BLOGS">
+    </form>
+
+  </body>
+</html>

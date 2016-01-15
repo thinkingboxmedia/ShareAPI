@@ -1,0 +1,9 @@
+{
+    "require": {
+        "monolog/monolog": "1.0.*",
+        "facebook/php-sdk-v4" : "~5.0",
+        "abraham/twitteroauth": "^0.6.2",
+        "tumblr/tumblr": "^0.2.0",
+        "snipe/banbuilder": "^2.2"
+    }
+}
