@@ -27,10 +27,6 @@ class TB_Facebook_Intent {
       $extender .= "&description=" . $_POST['description'];
     }
 
-    if(isset($_POST['message']) && $_POST['message'] != ""){
-      $extender .= "&message=" . $_POST['message'];
-    }
-
     if(isset($_POST['redirect_uri']) && $_POST['redirect_uri'] != ""){
       $redirect = "&redirect_uri=" . $_POST['redirect_uri'];
     } 

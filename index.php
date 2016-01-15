@@ -8,7 +8,6 @@ $config = include("/config.php");
 /////////////////////////////////////HANDLE PREFLIGHT REQUESTS////////////////////////////////////
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
   // return only the headers and not the content
-  // only allow CORS if we're doing a GET - i.e. no saving for now.
   if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
     if($config['cross_domain']){
       header('Access-Control-Allow-Origin: ' . $config['requesting_domain']);
