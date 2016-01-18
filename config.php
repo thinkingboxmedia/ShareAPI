@@ -9,6 +9,10 @@ return array(
   "enable_profanity_filter" => true, //If set to true, any profanity will be replaced with ***'s
   "cross_domain" => true,
   "requesting_domain" => "http://localhost:3000",
+
+
+
+  
   "app_id" => "452484801614654",  //Facebook App ID
   "app_secret" => "f9f08583bbdff3037128a0c7a7531d3e", //Facebook Secret Key
   "facebook_permissions" => "email,user_likes,publish_actions,user_photos,user_events", //comma seperated list (1)

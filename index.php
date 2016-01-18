@@ -323,7 +323,17 @@ if($params[0] == 'pinterest'){
         $p->HandleResponse();
       } else {
         $url = $p->GenerateLoginLink();
+        header('location: ' . $url);
+        die();
         generateSuccessResponse($url);
+      }
+    } else if ($params[1] == 'user') {
+      if(isset($params[2])) {
+        $pin = new TB_Pinterest_User();
+        if($params[2] == 'boards') {
+          $r = $pin->GetUserBoards();
+          generateSuccessResponse($r);
+        }
       }
     }
   }

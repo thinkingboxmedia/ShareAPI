@@ -17,3 +17,5 @@ include 'tumblr/tumblr_user.php';
 include 'tumblr/tumblr_check.php';
 
 include 'pinterest/pinterest_verify.php';
+include 'pinterest/pinterest_post.php';
+include 'pinterest/pinterest_user.php';
