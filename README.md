@@ -148,7 +148,7 @@ thumbnail (string) - Source of photo to use as thumbnail
 author (string) - Author of website
 
 ### **LinkedIn**
-#### POST /linkedin/user/info
+#### GET /linkedin/user/info
 Get any requested info from the user's profile   
 **Params:**   
 fields (string) - **required** - Comma seperated list of fields you want returned. Click [here](https://developer.linkedin.com/docs/fields/basic-profile) for possible values.
