@@ -43,6 +43,7 @@ use Snipe\BanBuilder\CensorWords;
 
 
 
+
 ////////////////BASIC SECURITY CHECK/////////////////
 $headers = getallheaders();
 $requester = $headers['Host'];
@@ -310,6 +311,75 @@ if($params[0] == 'tumblr'){
 }
 
 /////////////////////////////////////////////////////
+
+
+///////////////////////ACTION - PINTREST////////////////////////
+//THIS PART OF THE API IS ON HOLD - HTTPS IS REQUIRED//
+
+if($params[0] == 'pinterest'){
+  if(isset($params[1])){
+    if($params[1] == 'login'){
+      $p = new TB_Pinterest_Verify();
+      if(isset($params[2]) && $params[2] == 'success'){
+        $p->HandleResponse();
+      } else {
+        $url = $p->GenerateLoginLink();
+        header('location: ' . $url);
+        die();
+        generateSuccessResponse($url);
+      }
+    } else if ($params[1] == 'user') {
+      if(isset($params[2])) {
+        $pin = new TB_Pinterest_User();
+        if($params[2] == 'boards') {
+          $r = $pin->GetUserBoards();
+          generateSuccessResponse($r);
+        }
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////////
+
+if($params[0] == 'linkedin') {
+  if(isset($params[1])){
+    if($params[1] == 'login') {
+        $li = new TB_LinkedIn_Verify();
+      if(isset($params[2]) && $params[2] == 'success'){
+        $li->HandleResponse();
+      } else {
+        $url = $li->GenerateLoginURL();
+        generateSuccessResponse($url);
+      }
+
+    } else if($params[1] == 'user') {
+      $li = new TB_LinkedIn_User();
+      if(isset($params[2])){
+        if($params[2] == 'info'){
+          $r = $li->GetUserInfo();
+          generateSuccessResponse($r);
+        }
+      }
+    } else if($params[1] == 'post') {
+      $li = new TB_LinkedIn_Share();
+      $r = $li->Share();
+      if($r == 'success') {
+        generateSuccessResponse('Post successful');
+      } else {
+        generateErrorResponse($r);
+      }
+    } else if($params[1] == 'intent') {
+      $li = new TB_LinkedIn_Intent();
+      $url = $li->GenerateIntentURL();
+      generateSuccessResponse($url);
+    }
+  }
+}
+
+//If the URL does not match anything, throw an error.
+generateErrorResponse("Invalid API endpoint");
+die();
 
 
 ////////////////////////INDEX HELPER FUNCTIONS////////////////////////

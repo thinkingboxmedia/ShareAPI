@@ -130,5 +130,47 @@
       <input type='submit' value="GET BLOGS">
     </form>
 
+<!--     <br><br><br><br><hr>
+
+    <h1>Pintrest</h1>
+
+    <form method="GET" action="http://localhost/ShareAPI/pinterest/login/">
+      <input type="submit" value="LOGIN">
+    </form>
+
+    <form method="GET" action="http://localhost/ShareAPI/pinterest/user/boards">
+      <input type='submit' value="Get Boards">
+    </form> -->
+
+    <br><br><br><br><hr>
+
+    <h1>LinkedIn</h1>
+
+    <form method="GET" action="http://localhost/ShareAPI/linkedin/login/">
+      <input type="submit" value="LOGIN">
+    </form>
+
+    <form method="GET" action="http://localhost/ShareAPI/linkedin/user/info">
+      <input type="hidden" name='fields' value='first-name,last-name,positions'>
+      <input type='submit' value="LI Info">
+    </form>
+
+    <form method="POST" action="http://localhost/ShareAPI/linkedin/post">
+      <input type="text" name='url' placeholder='url' value="http://thinkingbox.ca">
+      <input type="text" name='description' placeholder='description' value="Test Description">
+      <input type="text" name='title' placeholder="title" value="Test Title">
+      <input type="text" name='comment' placeholder="comment" value="Test Comment">
+      <input type="text" name='source' placeholder="source" value="https://i.vimeocdn.com/portrait/6125695_300x300.jpg">
+      <input type='submit' value="Share to LI">
+    </form>
+
+    <form method="POST" action="http://localhost/ShareAPI/linkedin/intent">
+      <input type="hidden" name='url' value='http://thinkingbox.ca'>
+      <input type="hidden" name='title' value='Thinkingbox'>
+      <input type='submit' value="Intent">
+    </form>
+
+    <br><br><br><br><br><br><br>
+
   </body>
 </html>

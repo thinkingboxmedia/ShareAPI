@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ace32dd0e4012c40d1b09b5256501f6b",
-    "content-hash": "69d3f04a86cde04e131cd7c16b91e7a4",
+    "hash": "f6b55a30d151fa0f8bed7ab0435ee696",
+    "content-hash": "ce672f68589b146fa8d3a1e7558f26cc",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -60,6 +60,52 @@
                 "twitter"
             ],
             "time": "2015-11-05 04:04:20"
+        },
+        {
+            "name": "dirkgroenen/pinterest-api-php",
+            "version": "0.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirkgroenen/Pinterest-API-PHP.git",
+                "reference": "91806d501a6a164ecee5f9720c6344e1858d812c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirkgroenen/Pinterest-API-PHP/zipball/91806d501a6a164ecee5f9720c6344e1858d812c",
+                "reference": "91806d501a6a164ecee5f9720c6344e1858d812c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DirkGroenen\\Pinterest\\": "src/Pinterest"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Dirk Groenen",
+                    "email": "dirk@bitlabs.nl",
+                    "homepage": "http://dirkgroenen.nl",
+                    "role": "Creator/Developer"
+                }
+            ],
+            "description": "PHP Wrapper for the official Pinterest API",
+            "keywords": [
+                "api",
+                "pinterest",
+                "wrapper"
+            ],
+            "time": "2016-01-09 15:07:19"
         },
         {
             "name": "eher/oauth",
@@ -245,6 +291,50 @@
             "time": "2015-03-18 18:23:50"
         },
         {
+            "name": "linkedinapi/linkedin",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ashwinks/PHP-LinkedIn-SDK.git",
+                "reference": "7fa96885b99e9267b4ae5c0f463f5a550c47a66c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ashwinks/PHP-LinkedIn-SDK/zipball/7fa96885b99e9267b4ae5c0f463f5a550c47a66c",
+                "reference": "7fa96885b99e9267b4ae5c0f463f5a550c47a66c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LinkedIn": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ashwin Surajbali",
+                    "email": "ashwin@redinkdesign.net",
+                    "homepage": "http://www.redinkdesign.co"
+                }
+            ],
+            "description": "PHP LinkedIn SDK",
+            "homepage": "https://github.com/ashwinks/PHP-LinkedIn-SDK",
+            "keywords": [
+                "api",
+                "api client",
+                "linkedin",
+                "rest"
+            ],
+            "time": "2014-03-03 15:16:50"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.0.2",
             "source": {
@@ -337,16 +427,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.1",
+            "version": "v2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "a5eb815363c0388e83247e7e9853e5dbc14999cc"
+                "reference": "ee278f7c851533e58ca307f66305ccb9188aceda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a5eb815363c0388e83247e7e9853e5dbc14999cc",
-                "reference": "a5eb815363c0388e83247e7e9853e5dbc14999cc",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ee278f7c851533e58ca307f66305ccb9188aceda",
+                "reference": "ee278f7c851533e58ca307f66305ccb9188aceda",
                 "shasum": ""
             },
             "require": {
@@ -393,7 +483,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2015-10-30 20:15:42"
+            "time": "2016-01-13 10:28:07"
         },
         {
             "name": "tumblr/tumblr",
