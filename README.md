@@ -29,7 +29,7 @@ The rest of the parameters are key's for certain social media platforms. To get 
 ## Usage - OAuth Flow
 ---
 The main feature of this API is the easy to use OAuth user flow. Simply redirect to a domain, and you're done! 
-***In these examples, {platform} can be either 'facebook', 'twitter', or 'tumblr'.***
+***In these examples, {platform} can be either 'facebook', 'twitter', 'linkedin', or 'tumblr'.***
 
 To generate the login URL, simply make a GET request to **/{platform}/login**
 
@@ -89,7 +89,7 @@ message (string) - Message to go along with the image
 Post a video to the user's timeline.  
 **Params:**   
 source (string) - **required** - Path to video you wish to share (external or server)   
-title (string) - Title of video
+title (string) - Title of video   
 description (string) - Description of video
 
 #### GET /facebook/user
@@ -115,7 +115,7 @@ message (string) - Text to go with the image
 Search twitter for latest tweets matching certain criteria   
 **Params:**   
 search (string) - **required** - A twitter query to search with. View the docs [here](https://dev.twitter.com/rest/public/search)    
-type (string) - What type of results do you want. (Can be either **popular**, **recent**, **or mixed**)
+type (string) - What type of results do you want. (Can be either **popular**, **recent**, **or mixed**)   
 count (int) - How many results to return   
 geo (geocode) - Search for tweets posted in a certain radiius. View the docs [here](https://dev.twitter.com/rest/reference/get/search/tweets)   
 since (int - tweetID) - Only return tweets after a certain tweet ID
@@ -146,6 +146,23 @@ blogName (string) - **required** - Name of blog to post to
 description (string) - Description of link         
 thumbnail (string) - Source of photo to use as thumbnail        
 author (string) - Author of website
+
+### **LinkedIn**
+#### POST /linkedin/user/info
+Get any requested info from the user's profile   
+**Params:**   
+fields (string) - **required** - Comma seperated list of fields you want returned. Click [here](https://developer.linkedin.com/docs/fields/basic-profile) for possible values.
+
+#### POST /linkedin/post
+Share something to the user's page
+**Params:**   
+title (string) - Title of the post      
+description (string) - Description of the post      
+url (string) - URL of the page or website you wish to share      
+source (string) - External source of the image you wish to share       
+comment (string) - Comment to go along with the post      
+visiblity (string) - Who can view this post (possible values: anyone (default), connections-only)
+
 
 ## Usage - Intents
 ---
@@ -186,6 +203,14 @@ via (string) - Adds "shared via @VIA" to the end of the tweet
 Generate a dialog to retweet a certain tweet   
 **params**        
 tweet_id (string) - **required** - ID of tweet to retweet.  
+
+### POST /linkedin/intent/
+Generate a dialog to share to LinkedIn   
+**params**        
+url (string) - **required** - URL of website you wish to share   
+title (string) - Title of what you are sharing        
+summary (string) - Short summary of the page you are sharing         
+source (string) - Where did this website come from 
 
 
 
