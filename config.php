@@ -21,7 +21,9 @@ return array(
   "tumblr_consumer_key" => "OsuIR0LI9BqY9X6KUOxLW5oebscFst1Nt7dInTpYa0Yv3UA5th",
   "tumblr_consumer_secret" => "7BkohpSuKhfsi96ljPpi8z1L68dOGKMVoH3nDFPCoGZ1zyVRnY",
   "pinterest_app_id" => "4812795452487387075",
-  "pinterest_app_secret" => "e393fe6b2912909e9c739ca4172ed64df68e656150428e320cf031b00b0df7a5"
+  "pinterest_app_secret" => "e393fe6b2912909e9c739ca4172ed64df68e656150428e320cf031b00b0df7a5",
+  "linkedin_client_id" => "77z04o8j3d0x8g",
+  "linkedin_client_secret" => "Gg4kWxjLi9dMxHmA"
 );
 
 //REFERENCES

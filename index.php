@@ -314,6 +314,7 @@ if($params[0] == 'tumblr'){
 
 
 ///////////////////////ACTION - PINTREST////////////////////////
+//THIS PART OF THE API IS ON HOLD - HTTPS IS REQUIRED//
 
 if($params[0] == 'pinterest'){
   if(isset($params[1])){
@@ -340,6 +341,43 @@ if($params[0] == 'pinterest'){
 }
 
 /////////////////////////////////////////////////////
+
+if($params[0] == 'linkedin') {
+  if(isset($params[1])){
+    if($params[1] == 'login') {
+        $li = new TB_LinkedIn_Verify();
+      if(isset($params[2]) && $params[2] == 'success'){
+        $li->HandleResponse();
+      } else {
+        $url = $li->GenerateLoginURL();
+        header('location:' . $url);
+        die();
+        generateSuccessResponse($url);
+      }
+
+    } else if($params[1] == 'user') {
+      $li = new TB_LinkedIn_User();
+      if(isset($params[2])){
+        if($params[2] == 'info'){
+          $r = $li->GetUserInfo();
+          generateSuccessResponse($r);
+        }
+      }
+    } else if($params[1] == 'post') {
+      $li = new TB_LinkedIn_Share();
+      $r = $li->Share();
+      if($r == 'success') {
+        generateSuccessResponse('Post successful');
+      } else {
+        generateErrorResponse($r);
+      }
+    }
+  }
+}
+
+//If the URL does not match anything, throw an error.
+generateErrorResponse("Invalid API endpoint!");
+die();
 
 
 ////////////////////////INDEX HELPER FUNCTIONS////////////////////////

@@ -19,3 +19,7 @@ include 'tumblr/tumblr_check.php';
 include 'pinterest/pinterest_verify.php';
 include 'pinterest/pinterest_post.php';
 include 'pinterest/pinterest_user.php';
+
+include 'linkedin/linkedin_verify.php';
+include 'linkedin/linkedin_user.php';
+include 'linkedin/linkedin_share.php';
