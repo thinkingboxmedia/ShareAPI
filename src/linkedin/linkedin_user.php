@@ -20,7 +20,13 @@ class TB_LinkedIn_User {
 
     $li->setAccessToken($_SESSION['linkedin_token']);
 
-    $info = $li->get('/people/~:(' . $_GET['fields'] . ')');
+    try{
+      $info = $li->get('/people/~:(' . $_GET['fields'] . ')');
+    }
+    catch (Exception $ex) {
+      return $ex->getMessage();
+    }
+    
 
     return $info;
   }

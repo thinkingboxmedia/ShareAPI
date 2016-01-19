@@ -72,12 +72,13 @@ class TB_LinkedIn_Share {
     
 
     try{
-      $r = $li->post('/people/~/shares', $post);
-      return 'success';
+      $li->post('/people/~/shares', $post);
     }
     catch (Exception $ex){
       return $ex->getMessage();
     }
+
+    return 'success';
     
 
   }

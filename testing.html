@@ -130,7 +130,7 @@
       <input type='submit' value="GET BLOGS">
     </form>
 
-    <br><br><br><br><hr>
+<!--     <br><br><br><br><hr>
 
     <h1>Pintrest</h1>
 
@@ -140,7 +140,7 @@
 
     <form method="GET" action="http://localhost/ShareAPI/pinterest/user/boards">
       <input type='submit' value="Get Boards">
-    </form>
+    </form> -->
 
     <br><br><br><br><hr>
 
@@ -163,6 +163,14 @@
       <input type="text" name='source' placeholder="source" value="https://i.vimeocdn.com/portrait/6125695_300x300.jpg">
       <input type='submit' value="Share to LI">
     </form>
+
+    <form method="POST" action="http://localhost/ShareAPI/linkedin/intent">
+      <input type="hidden" name='url' value='http://thinkingbox.ca'>
+      <input type="hidden" name='title' value='Thinkingbox'>
+      <input type='submit' value="Intent">
+    </form>
+
+    <br><br><br><br><br><br><br>
 
   </body>
 </html>

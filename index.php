@@ -350,8 +350,6 @@ if($params[0] == 'linkedin') {
         $li->HandleResponse();
       } else {
         $url = $li->GenerateLoginURL();
-        header('location:' . $url);
-        die();
         generateSuccessResponse($url);
       }
 
@@ -371,12 +369,16 @@ if($params[0] == 'linkedin') {
       } else {
         generateErrorResponse($r);
       }
+    } else if($params[1] == 'intent') {
+      $li = new TB_LinkedIn_Intent();
+      $url = $li->GenerateIntentURL();
+      generateSuccessResponse($url);
     }
   }
 }
 
 //If the URL does not match anything, throw an error.
-generateErrorResponse("Invalid API endpoint!");
+generateErrorResponse("Invalid API endpoint");
 die();
 
 

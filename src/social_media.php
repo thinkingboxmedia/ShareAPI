@@ -23,3 +23,4 @@ include 'pinterest/pinterest_user.php';
 include 'linkedin/linkedin_verify.php';
 include 'linkedin/linkedin_user.php';
 include 'linkedin/linkedin_share.php';
+include 'linkedin/linkedin_intent.php';
