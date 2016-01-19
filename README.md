@@ -10,7 +10,7 @@ A plug and play social media sharing and data retrieval API
 ## Installation
 ---
 ```sd
-php composer.phar install
+composer install
 ```
 Drag whole directory into any accessible directory, and voila, you're done!
 
